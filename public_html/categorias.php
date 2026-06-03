@@ -39,6 +39,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
         <li><a href="pedidos.php">Pedidos</a></li>
         <li><a href="ventas.php">Ventas</a></li>
         <li><a href="categorias.php">Categorias</a></li>
+        <li><a href="usuarios.php">Usuarios</a></li>
         <li><a href="src/php/logout.php"><button id="logout-button">Cerrar Sesión</button></a></li>
       </ul>
     </nav>

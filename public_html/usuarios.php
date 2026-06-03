@@ -18,19 +18,14 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     <!-- Estilos -->
     <link rel="stylesheet" href="build/css/app.css?v=<?php echo time(); ?>">
     <!-- JS -->
-    <script src="build/js/ventas.js?v=<?php echo time(); ?>" defer></script>
+    <script src="build/js/usuarios.js?v=<?php echo time(); ?>" defer></script>
     <!-- FUENTE LEXEND-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
-    <!-- CHART.JS-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
 </head>
 
 <body>
-
 
     <aside class="sidebar">
         <nav>
@@ -55,54 +50,24 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
 
     <div class="content">
 
-        <section class="tabla-ventas">
-            <h2>🧾 Ventas realizadas</h2>
-            <table id="tabla-ventas" style="width:100%; border-collapse: collapse;">
+        <section class="tabla-usuarios">
+            <h2>👥 Usuarios registrados en la web <span style="font-weight:400;">(<span id="total-usuarios">0</span>)</span></h2>
+            <table id="tabla-usuarios" style="width:100%; border-collapse: collapse;">
                 <thead>
                     <tr>
-                        <th>Fecha</th>
-                        <th>Productos</th>
-                        <th>Total</th>
-                        <th>Total Mayorista</th>
-                        <th>Entregado</th>
-                        <th>Eliminar</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>DNI</th>
+                        <th>Teléfono</th>
+                        <th>Mail</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
-
         </section>
 
-        <section class="kpis-ventas" style="display: flex; justify-content: center; gap: 20px; margin: 40px 0;">
-            <div class="kpi-card" id="kpi-total-vendido"
-                style="flex: 1; background: #f5f5f5; padding: 20px; border-radius: 10px; text-align: center;">
-                <h3>Total Vendido</h3>
-                <p style="font-size: 24px; font-weight: bold;">$0</p>
-            </div>
-            <div class="kpi-card" id="kpi-total-productos"
-                style="flex: 1; background: #f5f5f5; padding: 20px; border-radius: 10px; text-align: center;">
-                <h3>Productos Vendidos</h3>
-                <p style="font-size: 24px; font-weight: bold;">0</p>
-            </div>
-            <div class="kpi-card" id="kpi-producto-top"
-                style="flex: 1; background: #f5f5f5; padding: 20px; border-radius: 10px; text-align: center;">
-                <h3>Producto más vendido</h3>
-                <p style="font-size: 20px; font-weight: bold;">-</p>
-            </div>
-        </section>
-
-
-        <section class="resumen-ventas" style="margin-bottom: 40px;">
-            <h2>📊 Resumen de Ventas</h2>
-            <div style="max-width: 800px; margin: 20px auto;">
-                <canvas id="grafico-productos"></canvas>
-            </div>
-            <div style="max-width: 800px; margin: 40px auto 0;">
-                <canvas id="grafico-evolucion"></canvas>
-            </div>
-        </section>
     </div>
-
 
 </body>
 
