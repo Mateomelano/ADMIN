@@ -1,0 +1,15 @@
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Imágenes webp, png, jpg: cache por 1 año
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Cache-Control headers para navegadores modernos
+    <FilesMatch "\.(webp|png|jpg|jpeg)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+</IfModule>
