@@ -61,6 +61,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                 <thead>
                     <tr>
                         <th>Fecha</th>
+                        <th>Tipo</th>
                         <th>Productos</th>
                         <th>Total</th>
                         <th>Total Mayorista</th>

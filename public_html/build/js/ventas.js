@@ -110,8 +110,15 @@ data.forEach(venta => {
 
   if (venta.entregado == 1) entregadas++;
 
+  // Es mayorista si la venta tiene un usuario registrado asociado (id_usuario).
+  const esMayorista = venta.id_usuario !== null && venta.id_usuario !== undefined && venta.id_usuario !== "";
+  const tipoVenta = esMayorista
+    ? `<span style="background:#2e7d32;color:#fff;padding:4px 10px;border-radius:6px;font-size:12px;font-weight:bold;white-space:nowrap;">Mayorista</span>${venta.nombre_usuario ? `<div style="font-size:12px;color:#555;margin-top:4px;">${escVenta(venta.nombre_usuario)}</div>` : ""}`
+    : `<span style="background:#9e9e9e;color:#fff;padding:4px 10px;border-radius:6px;font-size:12px;white-space:nowrap;">Minorista</span>`;
+
   fila.innerHTML = `
     <td>${fechaFormateada}</td>
+    <td style="text-align:center;">${tipoVenta}</td>
     <td style="text-align:left; vertical-align:top;">${productos}</td>
     <td>$${venta.total}</td>
     <td>$${venta.total_mayorista}</td>
@@ -336,4 +343,13 @@ function generarGraficoEvolucion(ventasPorFecha) {
       }
     }
   });
+}
+
+// Escapa el nombre del usuario para que no rompa el HTML de la tabla.
+function escVenta(valor) {
+  if (valor === null || valor === undefined) return "";
+  return String(valor)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
